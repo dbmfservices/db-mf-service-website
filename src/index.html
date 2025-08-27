@@ -1,0 +1,331 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DB Mortgage & Financial Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Basic styles replacing Tailwind */
+    body { font-family: sans-serif; margin: 0; background: #fff; color: #334155; }
+    header, footer { background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    h1, h2, h3 { color: #0f172a; }
+    .card { background: #fff; border-radius: 1rem; box-shadow: 0 2px 8px #0001; padding: 1.5rem; margin-bottom: 1rem; }
+    .btn { display: inline-block; padding: 0.5rem 1.5rem; border-radius: 999px; background: #2563eb; color: #fff; text-decoration: none; border: none; cursor: pointer; }
+    .btn-outline { background: #fff; color: #2563eb; border: 1px solid #2563eb; }
+    .input, textarea { width: 100%; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; margin-top: 0.25rem; }
+    .row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+    .section { padding: 3rem 0; }
+    .tag { display: inline-flex; align-items: center; border: 1px solid #e2e8f0; border-radius: 999px; background: #fff; padding: 0.25rem 1rem; font-size: 0.85em; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+    nav a { margin-right: 1rem; color: #2563eb; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    /* Add more styles as needed */
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;height:64px;">
+      <a href="#home" style="font-weight:bold;display:flex;align-items:center;gap:0.5rem;">
+        <!-- Home SVG icon -->
+        <span style="background:linear-gradient(135deg,#2563eb,#06b6d4);width:36px;height:36px;border-radius:1rem;display:grid;place-items:center;">
+          <svg width="20" height="20" fill="white"><rect width="20" height="20" rx="4"/></svg>
+        </span>
+        DB Mortgage & Financial Services
+      </a>
+      <nav>
+        <a href="#who">Who We Are</a>
+        <a href="#services">Services</a>
+        <a href="#calculator">Mortgage Calculator</a>
+        <a href="#contact">Contact</a>
+        <a href="#links">Links</a>
+        <a href="#contact" class="btn">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="section">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <h1 style="font-size:2.5rem;font-weight:bold;">Your Trusted Partner in Homeownership & Financial Security</h1>
+          <p style="margin-top:1rem;">Tailored mortgages, wealth planning, and insurance guidance—under one roof. We help you buy your dream home and secure your financial future.</p>
+          <div style="margin-top:1.5rem;">
+            <a href="#contact" class="btn">Talk to an Expert</a>
+            <a href="#services" class="btn btn-outline" style="margin-left:0.5rem;">Explore Services</a>
+          </div>
+          <div style="margin-top:1.5rem;">
+            <span class="tag">Licensed LO & Insurance (NJ)</span>
+            <span class="tag">Client-first, transparent guidance</span>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Quick Monthly Estimate</h3>
+            <div id="inline-calculator"></div>
+            <p style="font-size:0.85em;color:#64748b;margin-top:1rem;">For a full breakdown including taxes/insurance, see the calculator section below.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Are -->
+    <section id="who" class="section" style="border-top:1px solid #e2e8f0;">
+      <div class="container" style="display:grid;grid-template-columns:2fr 1fr;gap:2rem;">
+        <div>
+          <h2>Who We Are</h2>
+          <p style="margin-top:1rem;">
+            DB Mortgage & Financial Services is led by <strong>Dimple Bhojawala</strong>—born and raised in India and a graduate with a Bachelor’s in Business Management from Kean University. Dimple is a licensed <strong>Loan Officer</strong> and holds a <strong>Life & Health Insurance</strong> license in New Jersey. She’s passionate about helping people achieve their personal and emotional goals—owning a dream home and safeguarding their finances for retirement.
+          </p>
+          <p style="margin-top:1rem;">
+            We combine empathy with expertise, guiding you through complex decisions with clarity and care.
+          </p>
+          <div style="margin-top:1rem;">
+            <span class="tag">Compliance & Clarity</span>
+            <span class="tag">Wealth & Retirement Focus</span>
+            <span class="tag">End-to-End Support</span>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>At a Glance</h3>
+            <div style="font-size:0.95em;">
+              <div class="row"><span>Licensed Loan Officer & Life/Health Insurance (NJ)</span></div>
+              <div class="row"><span>Personalized, client-first guidance</span></div>
+              <div class="row"><span>Mortgage + Financial planning under one roof</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section" style="background:#f1f5f9;">
+      <div class="container">
+        <h2>Services We Provide</h2>
+        <p>Holistic guidance from pre-approval to retirement—tailored to your goals.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;">
+          <div class="card">
+            <h3>Mortgage Services</h3>
+            <ul>
+              <li>Home Purchase Loans (Conventional, FHA, VA, USDA)</li>
+              <li>Refinancing: Rate-and-term, Cash-out, Streamlined</li>
+              <li>Specialized Programs: Jumbo, ARMs, First-time Buyer</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Financial Services</h3>
+            <ul>
+              <li>Wealth & Retirement Planning</li>
+              <li>Life & Health Insurance Guidance</li>
+              <li>Credit & Debt Management Support</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Business & Commercial</h3>
+            <ul>
+              <li>Small Business Loans & Lines</li>
+              <li>Commercial Real Estate Financing</li>
+              <li>Cash Flow & Treasury Guidance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mortgage Calculator -->
+    <section id="calculator" class="section">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <h2>Mortgage Calculator</h2>
+          <p>Estimate monthly payments with principal & interest (P&I), plus taxes, insurance, and HOA. This is an estimate—not a commitment to lend.</p>
+          <div id="mortgage-fields"></div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Results</h3>
+            <div id="mortgage-results"></div>
+            <a href="#contact" class="btn" style="width:100%;margin-top:1rem;">Get Pre-Qualified</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" style="background:#f1f5f9;">
+      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <div>
+          <h2>Contact Us</h2>
+          <p>Ready to start? Send us a message and we’ll reach out with next steps.</p>
+          <div style="margin-top:1rem;">
+            <div class="row"><span>📞 (555) 123-4567</span></div>
+            <div class="row"><span>✉️ info@example.com</span></div>
+            <div class="row"><span>📍 New Jersey, USA</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h3>Send a Message</h3>
+            <form id="contact-form">
+              <label>Full Name</label>
+              <input class="input" name="name" required placeholder="Your name">
+              <label>Email</label>
+              <input class="input" name="email" type="email" required placeholder="you@example.com">
+              <label>Phone</label>
+              <input class="input" name="phone" required placeholder="(xxx) xxx-xxxx">
+              <label>Message</label>
+              <textarea class="input" name="message" rows="4" required placeholder="How can we help?"></textarea>
+              <div style="margin-top:1rem;">
+                <button type="submit" class="btn">Send Email</button>
+                <a href="#" class="btn btn-outline" style="margin-left:0.5rem;">Schedule a Consultation</a>
+              </div>
+              <p style="font-size:0.85em;color:#64748b;margin-top:1rem;">By contacting us, you consent to be reached by phone, SMS, or email. This is not a commitment to lend.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section id="links" class="section">
+      <div class="container">
+        <h2>Quick Links</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;">
+          <a href="#" class="card" style="text-decoration:none;">
+            <div style="font-weight:500;">Apply Online</div>
+            <div style="color:#64748b;">Start your application in minutes.</div>
+          </a>
+          <a href="#" class="card" style="text-decoration:none;">
+            <div style="font-weight:500;">Schedule a Consultation</div>
+            <div style="color:#64748b;">Book a 1:1 with an expert.</div>
+          </a>
+          <a href="#" class="card" style="text-decoration:none;">
+            <div style="font-weight:500;">Resources</div>
+            <div style="color:#64748b;">Guides, FAQs, and tools.</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding:2rem 0;">
+      <div>© <span id="year"></span> DB Mortgage & Financial Services. All rights reserved.</div>
+      <div>
+        <a href="#" style="margin-right:1rem;">Privacy</a>
+        <a href="#" style="margin-right:1rem;">Disclosures</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Inline Calculator ---
+    function computeMortgage(amount, rate, years) {
+      var n = Math.max(1, Math.round(years * 12));
+      var r = Math.max(0, rate) / 100 / 12;
+      if (r === 0) return { monthly: amount / n };
+      var pow = Math.pow(1 + r, n);
+      var monthly = (amount * r * pow) / (pow - 1);
+      return { monthly: monthly };
+    }
+    function fmt(n) {
+      return n ? '$' + n.toLocaleString(undefined, {maximumFractionDigits:2}) : '$0';
+    }
+    // Inline calculator
+    function renderInlineCalculator() {
+      var container = document.getElementById('inline-calculator');
+      container.innerHTML = `
+        <label>Amount</label>
+        <input class="input" id="ic-amt" type="number" value="400000">
+        <label>Rate %</label>
+        <input class="input" id="ic-rate" type="number" step="0.01" value="6.5">
+        <label>Years</label>
+        <input class="input" id="ic-yrs" type="number" value="30">
+        <div id="ic-result" style="margin-top:1rem;">Estimated Monthly Payment: <strong>$0</strong></div>
+        <a href="#calculator" class="btn btn-outline" style="margin-top:1rem;">Open Full Calculator</a>
+      `;
+      function update() {
+        var amt = Number(document.getElementById('ic-amt').value);
+        var rate = Number(document.getElementById('ic-rate').value);
+        var yrs = Number(document.getElementById('ic-yrs').value);
+        var res = computeMortgage(amt, rate, yrs);
+        document.getElementById('ic-result').innerHTML = 'Estimated Monthly Payment: <strong>' + fmt(res.monthly) + '</strong>';
+      }
+      ['ic-amt','ic-rate','ic-yrs'].forEach(id => {
+        document.getElementById(id).addEventListener('input', update);
+      });
+      update();
+    }
+    renderInlineCalculator();
+
+    // --- Mortgage Calculator ---
+    function renderMortgageFields() {
+      var container = document.getElementById('mortgage-fields');
+      container.innerHTML = `
+        <label>Home Price</label>
+        <input class="input" id="mc-amount" type="number" value="450000">
+        <label>Down Payment (%)</label>
+        <input class="input" id="mc-down" type="number" value="10">
+        <label>Interest Rate (APR %)</label>
+        <input class="input" id="mc-rate" type="number" step="0.01" value="6.25">
+        <label>Loan Term (Years)</label>
+        <input class="input" id="mc-years" type="number" value="30">
+        <label>Annual Taxes</label>
+        <input class="input" id="mc-taxes" type="number" value="5200">
+        <label>Annual Insurance</label>
+        <input class="input" id="mc-insurance" type="number" value="1400">
+        <label>Monthly HOA</label>
+        <input class="input" id="mc-hoa" type="number" value="0">
+      `;
+      function update() {
+        var amount = Number(document.getElementById('mc-amount').value);
+        var down = Number(document.getElementById('mc-down').value);
+        var rate = Number(document.getElementById('mc-rate').value);
+        var years = Number(document.getElementById('mc-years').value);
+        var taxes = Number(document.getElementById('mc-taxes').value);
+        var insurance = Number(document.getElementById('mc-insurance').value);
+        var hoa = Number(document.getElementById('mc-hoa').value);
+
+        var principal = amount * (1 - down/100);
+        var base = computeMortgage(principal, rate, years);
+        var escrowMonthly = (taxes + insurance) / 12 + hoa;
+        var piti = base.monthly + escrowMonthly;
+
+        var results = `
+          <div class="row"><span>Home Price</span><span>${fmt(amount)}</span></div>
+          <div class="row"><span>Down Payment</span><span>${down}% (${fmt(amount * down/100)})</span></div>
+          <div class="row"><span>Loan Amount</span><span>${fmt(principal)}</span></div>
+          <hr>
+          <div class="row"><span>P&I (Principal & Interest)</span><span>${fmt(base.monthly)}</span></div>
+          <div class="row"><span>Taxes + Insurance + HOA</span><span>${fmt(escrowMonthly)}</span></div>
+          <div class="row"><strong>Estimated Monthly Payment</strong><strong>${fmt(piti)}</strong></div>
+          <div style="font-size:0.85em;color:#64748b;margin-top:1rem;">Your rate and final payment may vary based on credit profile, loan type, and market conditions.</div>
+        `;
+        document.getElementById('mortgage-results').innerHTML = results;
+      }
+      ['mc-amount','mc-down','mc-rate','mc-years','mc-taxes','mc-insurance','mc-hoa'].forEach(id => {
+        document.getElementById(id).addEventListener('input', update);
+      });
+      update();
+    }
+    renderMortgageFields();
+
+    // --- Contact Form ---
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = this.name.value;
+      var email = this.email.value;
+      var phone = this.phone.value;
+      var message = this.message.value;
+      var subject = encodeURIComponent("DB Mortgage & Financial Services — Inquiry");
+      var body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
+      window.location.href = `mailto:info@example.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
