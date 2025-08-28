@@ -1,331 +1,1289 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>DB Mortgage & Financial Services</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    /* Basic styles replacing Tailwind */
-    body { font-family: sans-serif; margin: 0; background: #fff; color: #334155; }
-    header, footer { background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-    h1, h2, h3 { color: #0f172a; }
-    .card { background: #fff; border-radius: 1rem; box-shadow: 0 2px 8px #0001; padding: 1.5rem; margin-bottom: 1rem; }
-    .btn { display: inline-block; padding: 0.5rem 1.5rem; border-radius: 999px; background: #2563eb; color: #fff; text-decoration: none; border: none; cursor: pointer; }
-    .btn-outline { background: #fff; color: #2563eb; border: 1px solid #2563eb; }
-    .input, textarea { width: 100%; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid #e2e8f0; margin-top: 0.25rem; }
-    .row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
-    .section { padding: 3rem 0; }
-    .tag { display: inline-flex; align-items: center; border: 1px solid #e2e8f0; border-radius: 999px; background: #fff; padding: 0.25rem 1rem; font-size: 0.85em; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-    nav a { margin-right: 1rem; color: #2563eb; text-decoration: none; }
-    nav a:hover { text-decoration: underline; }
-    /* Add more styles as needed */
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;height:64px;">
-      <a href="#home" style="font-weight:bold;display:flex;align-items:center;gap:0.5rem;">
-        <!-- Home SVG icon -->
-        <span style="background:linear-gradient(135deg,#2563eb,#06b6d4);width:36px;height:36px;border-radius:1rem;display:grid;place-items:center;">
-          <svg width="20" height="20" fill="white"><rect width="20" height="20" rx="4"/></svg>
-        </span>
-        DB Mortgage & Financial Services
-      </a>
-      <nav>
-        <a href="#who">Who We Are</a>
-        <a href="#services">Services</a>
-        <a href="#calculator">Mortgage Calculator</a>
-        <a href="#contact">Contact</a>
-        <a href="#links">Links</a>
-        <a href="#contact" class="btn">Get Started</a>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DB Mortgage & Financial Services</title>
+    <meta
+      name="description"
+      content="DB Mortgage & Financial Services – mortgages, refinancing, wealth management, and insurance solutions with a digital-first, client-centered approach."
+    />
+    <meta name="theme-color" content="#64aa38" />
+    <link rel="icon" type="image/png" href="resources/logo_without_name.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brand-green: #64aa38;
+        --brand-blue: #0380d0;
+        --brand-orange: #fd8135;
+        --brand-black: #040404;
+        --bg: #0b0b0b;
+        --muted: #eff3f6;
+        --ink: #172126;
+        --card: #ffffff;
+        --gradient: linear-gradient(
+          135deg,
+          var(--brand-green),
+          var(--brand-blue)
+        );
+        --radius: 18px;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, #f7fafc, #fdfdfd);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+      .container {
+        width: min(1120px, 94%);
+        margin-inline: auto;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.9rem 1.2rem;
+        border-radius: 999px;
+        font-weight: 600;
+        border: 2px solid transparent;
+        transition: 0.25s;
+      }
+      .btn-primary {
+        background: var(--brand-blue);
+        color: #fff;
+      }
+      .btn-primary:hover {
+        filter: brightness(0.95);
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        background: transparent;
+        border-color: rgba(0, 0, 0, 0.08);
+      }
+      .btn-ghost:hover {
+        background: rgba(0, 0, 0, 0.04);
+      }
+      header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: saturate(180%) blur(10px);
+        background: rgba(255, 255, 255, 0.78);
+        z-index: 80;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .header-banner {
+        width: 100vw;
+        max-width: 100%;
+        height: 340px; /* Adjust height as needed */
+        object-fit: cover;
+        display: block;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        /* Ensures image is centered and full-bleed */
+      }
+      /* Add a black tint overlay */
+      .header-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45); /* 45% black tint */
+        z-index: 1;
+      }
+      .header-hero {
+        position: relative;
+        width: 100vw;
+        max-width: 100%;
+        height: 340px;
+        overflow: hidden;
+      }
 
-  <main>
-    <!-- Hero Section -->
-    <section id="home" class="section">
-      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+      .header-banner {
+        width: 100vw;
+        max-width: 100%;
+        height: 340px;
+        object-fit: cover;
+        display: block;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+      .header-hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        max-width: 700px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        z-index: 2;
+        padding: 0 1rem;
+        /* Optional: add text shadow for readability */
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+      }
+
+      .header-hero-text .eyebrow {
+        background: rgba(253, 129, 53, 0.28);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+
+      .header-hero-text h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: clamp(2rem, 2.4rem + 1vw, 3.2rem);
+        margin: 0.7rem 0 0.6rem;
+        color: #fff;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.8rem 0;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: url("resources/logo_without_name.jpg") center center/contain
+          no-repeat;
+        box-shadow: var(--shadow);
+      }
+      .logo h1 {
+        font: 700 1.05rem/1 Inter;
+        color: var(--brand-black);
+        letter-spacing: 0.3px;
+      }
+      nav ul {
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        padding: 0.6rem 0.9rem;
+        border-radius: 10px;
+        font-weight: 600;
+        color: #0f1720;
+      }
+      nav a:hover {
+        background: rgba(3, 128, 208, 0.1);
+        color: var(--brand-blue);
+      }
+      .hero {
+        position: relative;
+        isolation: isolate;
+        padding: 90px 0 40px;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: -20% -10% auto -10%;
+        height: 60%;
+        background: radial-gradient(
+            800px 360px at 10% 10%,
+            rgba(3, 128, 208, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            600px 280px at 90% 20%,
+            rgba(100, 170, 56, 0.14),
+            transparent 70%
+          );
+        z-index: -1;
+      }
+      .hero .grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2.2rem;
+        align-items: center;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(253, 129, 53, 0.12);
+        color: var(--brand-orange);
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      .hero h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: clamp(2rem, 2.4rem + 1vw, 3.2rem);
+        margin: 0.7rem 0 0.6rem;
+        color: var(--brand-black);
+      }
+      .hero p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #24323a;
+      }
+      .hero-card {
+        background: var(--card);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: var(--shadow);
+      }
+      .hero-list {
+        display: grid;
+        /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
+        gap: 0.8rem;
+        margin: 1rem 0 1.2rem;
+      }
+      .hero-list span {
+        display: flex;
+        gap: 0.6rem;
+        align-items: flex-start;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        padding: 0.75rem;
+        border-radius: 12px;
+      }
+      .kpi {
+        display: flex;
+        gap: 1.2rem;
+        margin-top: 1rem;
+        align-items: stretch; /* Ensure all items have equal height */
+        justify-content: flex-start; /* Align items to the left */
+        flex-wrap: wrap;
+      }
+      .kpi-item {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        padding: 1rem 1.2rem;
+        border-radius: 12px;
+        min-width: 140px;
+        flex: 1 1 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertically center content */
+        align-items: flex-start; /* Align content to the left */
+        box-sizing: border-box;
+      }
+      .kpi-item h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        word-break: break-word; /* Prevent overflow for long words */
+        hyphens: auto;
+        line-height: 1.3;
+        max-width: 100%;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.28rem 0.55rem;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 999px;
+        font-size: 0.8rem;
+      }
+      .section {
+        padding: 64px 0;
+      }
+      .section h3 {
+        font: 800 1.8rem/1.2 Inter;
+        color: var(--brand-black);
+        margin: 0 0 0.8rem;
+      }
+      .sub {
+        color: #475a65;
+        /* max-width: 1rem; */
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+        margin-top: 1.4rem;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: var(--radius);
+        padding: 1.1rem;
+        box-shadow: var(--shadow);
+      }
+      .card h4 {
+        margin: 0.2rem 0 0.5rem;
+        font-size: 1.15rem;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.34rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(3, 128, 208, 0.1);
+        color: var(--brand-blue);
+        font-weight: 700;
+        font-size: 1rem;
+      }
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+      }
+      .accent {
+        background: linear-gradient(
+          145deg,
+          rgba(3, 128, 208, 0.08),
+          rgba(100, 170, 56, 0.08)
+        );
+        border: 1px dashed rgba(0, 0, 0, 0.1);
+      }
+      .feature-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin: 0.9rem 0 0;
+      }
+      .feature {
+        display: flex;
+        gap: 0.6rem;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        padding: 0.75rem;
+        border-radius: 12px;
+      }
+      .pill {
+        display: inline-flex;
+        gap: 0.4rem;
+        align-items: center;
+        padding: 0.38rem 0.6rem;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        font-size: 0.8rem;
+      }
+      .cta-band {
+        background: var(--gradient);
+        color: white;
+        border-radius: 16px;
+        padding: 22px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1.2rem;
+      }
+      .split-dimple {
+        display: grid;
+        grid-template-columns: 1.5fr 0.5fr;
+        gap: 1.2rem;
+      }
+      .case {
+        background: linear-gradient(180deg, #fff, #f8fbff);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        box-shadow: var(--shadow);
+      }
+      .why {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+      .why > div {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+      .contact {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 1.2rem;
+      }
+      form {
+        display: grid;
+        gap: 0.8rem;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 0.9rem;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        font: inherit;
+      }
+      textarea {
+        min-height: 120px;
+      }
+      footer {
+        background: #0e0f10;
+        color: #cfd8df;
+        margin-top: 40px;
+      }
+      footer .container {
+        padding: 28px 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr 0.8fr;
+        gap: 1.2rem;
+      }
+      .small {
+        font-size: 0.92rem;
+        color: #556872;
+      }
+      .tag {
+        font-weight: 800;
+        color: #fff;
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .hero .grid,
+        .grid-2,
+        .split,
+        .contact,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: 1fr 1fr;
+        }
+        .why {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        nav ul {
+          display: none;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .why {
+          grid-template-columns: 1fr;
+        }
+        .hero-list {
+          grid-template-columns: 1fr;
+        }
+        .kpi {
+          flex-wrap: wrap;
+        }
+      }
+      @media (max-width: 640px) {
+        .split-dimple {
+          display: block !important;
+          padding: 0 !important;
+        }
+        .split-dimple article {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0.5em 0.2em !important;
+          box-sizing: border-box;
+        }
+        .split-dimple img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+          margin: 0 auto 1em auto;
+          border-radius: 12px;
+        }
+        .split-dimple p {
+          font-size: 1em;
+          text-align: left;
+          margin-bottom: 0.8em;
+        }
+      }
+
+      /* Simple reveal animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: all 0.6s ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header aria-label="Primary">
+      <div class="container nav">
+        <a
+          href="#home"
+          class="logo"
+          aria-label="DB Mortgage & Financial Services"
+        >
+          <span class="logo-mark" aria-hidden="true"></span>
+          <h1>DB Mortgage & Financial Services</h1>
+        </a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#mortgage">Mortgages</a></li>
+            <li><a href="#financial">Financial Planning</a></li>
+            <li><a href="#case">Case Study</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="header-hero">
+      <img
+        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80"
+        alt="Mortgage & Financial Services Banner"
+        class="header-banner"
+      />
+      <div class="header-hero-text">
+        <span class="eyebrow">Trusted, Transparent, Tech‑Enabled</span>
+        <h2>Your Partner for Mortgages & Long‑Term Financial Confidence</h2>
+      </div>
+    </div>
+
+    <main id="home" class="hero">
+      <div class="container grid">
         <div>
-          <h1 style="font-size:2.5rem;font-weight:bold;">Your Trusted Partner in Homeownership & Financial Security</h1>
-          <p style="margin-top:1rem;">Tailored mortgages, wealth planning, and insurance guidance—under one roof. We help you buy your dream home and secure your financial future.</p>
-          <div style="margin-top:1.5rem;">
-            <a href="#contact" class="btn">Talk to an Expert</a>
-            <a href="#services" class="btn btn-outline" style="margin-left:0.5rem;">Explore Services</a>
+          <!-- <span class="eyebrow">Trusted, Transparent, Tech‑Enabled</span>
+          <h2>Your Partner for Mortgages & Long‑Term Financial Confidence</h2> -->
+          <p>
+            We simplify home financing with clear guidance, digital convenience,
+            and end‑to‑end support. From first approvals to wealth and risk
+            management, our team aligns every decision to your goals. Our goal
+            is to help families understand estate planning, long-term care, and
+            financial wellness—without the confusion.
+          </p>
+          <div class="hero-list" role="list">
+            <span role="listitem">✅ Pre‑approvals & real‑time tracking</span>
+            <span role="listitem">✅ Conventional, FHA, VA, USDA, Jumbo</span>
+            <span role="listitem">✅ Refinancing & cash‑out options</span>
+            <span role="listitem"
+              >✅ Wealth, insurance, & retirement guidance</span
+            >
           </div>
-          <div style="margin-top:1.5rem;">
-            <span class="tag">Licensed LO & Insurance (NJ)</span>
-            <span class="tag">Client-first, transparent guidance</span>
+          <!-- <div class="kpi" aria-label="Highlights">
+            <div class="kpi-item" aria-live="polite">
+              <div class="badge">⚡ Fast Closings</div>
+              <h3>As quick as 21 days</h3>
+              <p class="small">Digital docs & automated underwriting</p>
+            </div>
+            <div class="kpi-item">
+              <div class="badge">🔒 Security</div>
+              <h3>Compliance‑first</h3>
+              <p class="small">State & federal data protection</p>
+            </div>
+            <div class="kpi-item">
+              <div class="badge">💬 Support</div>
+              <h3>1:1 Guidance</h3>
+              <p class="small">Dedicated loan officers & coordinators</p>
+            </div>
+          </div> -->
+          <div
+            style="
+              margin-top: 1.1rem;
+              display: flex;
+              gap: 0.6rem;
+              flex-wrap: wrap;
+            "
+          >
+            <a class="btn btn-primary" href="#contact">Get Pre‑Approved</a>
+            <a class="btn btn-ghost" href="#services">Explore Services</a>
           </div>
         </div>
-        <div>
-          <div class="card">
-            <h3>Quick Monthly Estimate</h3>
-            <div id="inline-calculator"></div>
-            <p style="font-size:0.85em;color:#64748b;margin-top:1rem;">For a full breakdown including taxes/insurance, see the calculator section below.</p>
-          </div>
+        <aside class="hero-card" aria-label="Quick Calculator">
+          <div class="chip">💳 Mortgage Estimator</div>
+          <p class="small">
+            Estimate your monthly payment. (For illustration only.)
+          </p>
+          <form id="calc" aria-describedby="calc-note">
+            <div class="grid-2">
+              <label>
+                <span class="small">Home Price ($)</span>
+                <input
+                  type="number"
+                  id="price"
+                  min="0"
+                  value="450000"
+                  required
+                />
+              </label>
+              <label>
+                <span class="small">Down Payment (%)</span>
+                <input
+                  type="number"
+                  id="down"
+                  min="0"
+                  max="100"
+                  value="20"
+                  required
+                />
+              </label>
+            </div>
+            <div class="grid-2">
+              <label>
+                <span class="small">Interest Rate (%)</span>
+                <input
+                  type="number"
+                  id="rate"
+                  step="0.01"
+                  min="0"
+                  value="6.75"
+                  required
+                />
+              </label>
+              <label>
+                <span class="small">Term (years)</span>
+                <input type="number" id="years" min="1" value="30" required />
+              </label>
+            </div>
+            <button class="btn btn-primary" type="button" id="calcBtn">
+              Calculate
+            </button>
+            <div
+              id="result"
+              class="cta-band"
+              style="display: none"
+              role="status"
+              aria-live="polite"
+            ></div>
+            <p id="calc-note" class="small">
+              This is an estimate and not a credit decision. Rates & terms are
+              examples only.
+            </p>
+          </form>
+        </aside>
+      </div>
+    </main>
+
+    <section id="services" class="section reveal">
+      <div class="container">
+        <h3>Comprehensive Services</h3>
+        <p class="sub">
+          From mortgages to wealth and insurance strategies, we align every
+          solution to your life stage and goals.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <div class="chip">🏡 Mortgages</div>
+            <h4>Home purchase, refinance & specialized loans</h4>
+            <p class="small">
+              Conventional, FHA, VA, USDA, Jumbo, ARMs, construction, reverse
+              mortgages, and programs for unique credit or asset profiles.
+            </p>
+          </article>
+          <article class="card">
+            <div class="chip">📈 Wealth Planning</div>
+            <h4>Investments, retirement & college savings</h4>
+            <p class="small">
+              Personalized strategies, IRAs, 401(k) rollovers, annuities, and
+              529s—built for long‑term stability and growth.
+            </p>
+          </article>
+          <article class="card">
+            <div class="chip">🛡️ Insurance</div>
+            <h4>Protect what matters most</h4>
+            <p class="small">
+              Life (Term, Whole, IUL), disability, homeowners & mortgage
+              protection, Obamacare/Medicare, long‑term care, and bundled
+              options.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Who We Are -->
-    <section id="who" class="section" style="border-top:1px solid #e2e8f0;">
-      <div class="container" style="display:grid;grid-template-columns:2fr 1fr;gap:2rem;">
-        <div>
-          <h2>Who We Are</h2>
-          <p style="margin-top:1rem;">
-            DB Mortgage & Financial Services is led by <strong>Dimple Bhojawala</strong>—born and raised in India and a graduate with a Bachelor’s in Business Management from Kean University. Dimple is a licensed <strong>Loan Officer</strong> and holds a <strong>Life & Health Insurance</strong> license in New Jersey. She’s passionate about helping people achieve their personal and emotional goals—owning a dream home and safeguarding their finances for retirement.
-          </p>
-          <p style="margin-top:1rem;">
-            We combine empathy with expertise, guiding you through complex decisions with clarity and care.
-          </p>
-          <div style="margin-top:1rem;">
-            <span class="tag">Compliance & Clarity</span>
-            <span class="tag">Wealth & Retirement Focus</span>
-            <span class="tag">End-to-End Support</span>
-          </div>
-        </div>
-        <div>
-          <div class="card">
-            <h3>At a Glance</h3>
-            <div style="font-size:0.95em;">
-              <div class="row"><span>Licensed Loan Officer & Life/Health Insurance (NJ)</span></div>
-              <div class="row"><span>Personalized, client-first guidance</span></div>
-              <div class="row"><span>Mortgage + Financial planning under one roof</span></div>
+    <section id="mortgage" class="section reveal">
+      <div class="container">
+        <div class="split">
+          <div>
+            <h3>Mortgage Solutions</h3>
+            <p class="sub">
+              Clear choices, transparent timelines, and digital tools that keep
+              you in control.
+            </p>
+            <div class="feature-list">
+              <div class="feature">✅ Pre‑qualification & pre‑approval</div>
+              <div class="feature">
+                ✅ First‑time & repeat buyers; investors
+              </div>
+              <div class="feature">✅ Rate‑and‑term & cash‑out refinancing</div>
+              <div class="feature">
+                ✅ Streamlined refis for eligible borrowers
+              </div>
+              <div class="feature">
+                ✅ Affordable housing & down‑payment assistance
+              </div>
+              <div class="feature">
+                ✅ Foreign buyers & unique credit profiles
+              </div>
+            </div>
+            <div class="cta-band">
+              <strong>Ready to get started?</strong>
+              <a class="btn btn-primary" href="#contact"
+                >Start Your Application</a
+              >
             </div>
           </div>
+          <aside class="card accent">
+            <div class="chip">💻 Technology‑Driven</div>
+            <h4>Digital convenience, human expertise</h4>
+            <ul class="small">
+              <li>Secure online applications</li>
+              <li>E‑signatures & digital document uploads</li>
+              <li>Real‑time loan status tracking</li>
+            </ul>
+            <p class="small">
+              We combine automation with one‑on‑one guidance so you’re supported
+              at every step.
+            </p>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section id="services" class="section" style="background:#f1f5f9;">
+    <section id="financial" class="section reveal">
       <div class="container">
-        <h2>Services We Provide</h2>
-        <p>Holistic guidance from pre-approval to retirement—tailored to your goals.</p>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;">
-          <div class="card">
-            <h3>Mortgage Services</h3>
-            <ul>
-              <li>Home Purchase Loans (Conventional, FHA, VA, USDA)</li>
-              <li>Refinancing: Rate-and-term, Cash-out, Streamlined</li>
-              <li>Specialized Programs: Jumbo, ARMs, First-time Buyer</li>
+        <h3>Expanded Financial Services</h3>
+        <p class="sub">
+          Beyond the mortgage—build wealth, manage risks, and secure your
+          future.
+        </p>
+        <div class="grid-2">
+          <article class="card">
+            <div class="chip">📊 Wealth & Financial Planning</div>
+            <ul class="small">
+              <li>Tax-Free Retirement & Tax Saving Strategies</li>
+              <li>Personalized investment strategies & asset allocation</li>
+              <li>Retirement: IRAs, 401(k) rollovers, annuities</li>
+              <li>College savings: 529 plans</li>
+              <li>Estate planning guidance: wills & trusts</li>
+              <li>Life Insurance: Term, Whole Life, IUL</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Financial Services</h3>
-            <ul>
-              <li>Wealth & Retirement Planning</li>
-              <li>Life & Health Insurance Guidance</li>
-              <li>Credit & Debt Management Support</li>
+            <div class="small">
+              Visual idea: a pie chart of asset allocation to discuss during
+              consultations.
+            </div>
+          </article>
+          <article class="card">
+            <div class="chip">🧩 Insurance Solutions</div>
+            <ul class="small">
+              <li>Homeowners & mortgage protection</li>
+              <li>Life & disability insurance</li>
+              <li>Health: Obamacare & Medicare</li>
+              <li>Long‑term care & critical illness coverage</li>
+              <li>Bundled policy options for cost efficiency</li>
             </ul>
-          </div>
-          <div class="card">
-            <h3>Business & Commercial</h3>
-            <ul>
-              <li>Small Business Loans & Lines</li>
-              <li>Commercial Real Estate Financing</li>
-              <li>Cash Flow & Treasury Guidance</li>
-            </ul>
-          </div>
+            <div class="small">
+              Visual idea: icon grid depicting coverage types.
+            </div>
+          </article>
+        </div>
+        <div class="cta-band" style="margin-top: 1.2rem">
+          <strong>Holistic planning made simple.</strong>
+          <a class="btn btn-primary" href="#contact"
+            >Book a Free Consultation</a
+          >
         </div>
       </div>
     </section>
 
-    <!-- Mortgage Calculator -->
-    <section id="calculator" class="section">
-      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
-        <div>
-          <h2>Mortgage Calculator</h2>
-          <p>Estimate monthly payments with principal & interest (P&I), plus taxes, insurance, and HOA. This is an estimate—not a commitment to lend.</p>
-          <div id="mortgage-fields"></div>
-        </div>
-        <div>
-          <div class="card">
-            <h3>Results</h3>
-            <div id="mortgage-results"></div>
-            <a href="#contact" class="btn" style="width:100%;margin-top:1rem;">Get Pre-Qualified</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section" style="background:#f1f5f9;">
-      <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
-        <div>
-          <h2>Contact Us</h2>
-          <p>Ready to start? Send us a message and we’ll reach out with next steps.</p>
-          <div style="margin-top:1rem;">
-            <div class="row"><span>📞 (555) 123-4567</span></div>
-            <div class="row"><span>✉️ info@example.com</span></div>
-            <div class="row"><span>📍 New Jersey, USA</span></div>
-          </div>
-        </div>
-        <div>
-          <div class="card">
-            <h3>Send a Message</h3>
-            <form id="contact-form">
-              <label>Full Name</label>
-              <input class="input" name="name" required placeholder="Your name">
-              <label>Email</label>
-              <input class="input" name="email" type="email" required placeholder="you@example.com">
-              <label>Phone</label>
-              <input class="input" name="phone" required placeholder="(xxx) xxx-xxxx">
-              <label>Message</label>
-              <textarea class="input" name="message" rows="4" required placeholder="How can we help?"></textarea>
-              <div style="margin-top:1rem;">
-                <button type="submit" class="btn">Send Email</button>
-                <a href="#" class="btn btn-outline" style="margin-left:0.5rem;">Schedule a Consultation</a>
-              </div>
-              <p style="font-size:0.85em;color:#64748b;margin-top:1rem;">By contacting us, you consent to be reached by phone, SMS, or email. This is not a commitment to lend.</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quick Links -->
-    <section id="links" class="section">
+    <section id="case" class="section reveal">
       <div class="container">
-        <h2>Quick Links</h2>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;">
-          <a href="#" class="card" style="text-decoration:none;">
-            <div style="font-weight:500;">Apply Online</div>
-            <div style="color:#64748b;">Start your application in minutes.</div>
-          </a>
-          <a href="#" class="card" style="text-decoration:none;">
-            <div style="font-weight:500;">Schedule a Consultation</div>
-            <div style="color:#64748b;">Book a 1:1 with an expert.</div>
-          </a>
-          <a href="#" class="card" style="text-decoration:none;">
-            <div style="font-weight:500;">Resources</div>
-            <div style="color:#64748b;">Guides, FAQs, and tools.</div>
-          </a>
+        <h3>Client Testimonials</h3>
+        <div
+          class="testimonial-carousel"
+          style="position: relative; max-width: 600px; margin: auto"
+        >
+          <div class="testimonial-slide show" style="transition: opacity 0.5s">
+            <h4>First‑Time Buyer Closed in 21 Days</h4>
+            <p class="sub">
+              Using our digital platform and automated underwriting, we cut
+              documentation turnaround by <strong>40%</strong>—delivering a
+              smooth, on‑time closing.
+            </p>
+            <ul class="small">
+              <li>Instant pre‑approval provided clarity on budget</li>
+              <li>Secure uploads eliminated back‑and‑forth</li>
+              <li>Dedicated coordinator kept all parties aligned</li>
+            </ul>
+            <blockquote
+              class="small"
+              style="font-style: italic; color: #475a65; margin-top: 1em"
+            >
+              “Dimple and her team made the process so easy. We closed faster
+              than expected and felt supported every step of the way!”
+            </blockquote>
+            <div style="margin-top: 0.5em; font-weight: 600">
+              — Priya S., Edison, NJ
+            </div>
+          </div>
+          <div
+            class="testimonial-slide"
+            style="display: none; transition: opacity 0.5s"
+          >
+            <h4>Refinance for Lower Rate</h4>
+            <p class="sub">
+              We helped a family refinance their mortgage, reducing their
+              monthly payment and saving thousands over the loan term.
+            </p>
+            <ul class="small">
+              <li>Clear options explained for best fit</li>
+              <li>Digital document collection for speed</li>
+              <li>Personalized support throughout</li>
+            </ul>
+            <blockquote
+              class="small"
+              style="font-style: italic; color: #475a65; margin-top: 1em"
+            >
+              “I never thought refinancing could be this simple. Dimple’s advice
+              was spot-on and the process was seamless.”
+            </blockquote>
+            <div style="margin-top: 0.5em; font-weight: 600">
+              — Raj P., Iselin, NJ
+            </div>
+          </div>
+          <div
+            class="testimonial-slide"
+            style="display: none; transition: opacity 0.5s"
+          >
+            <h4>Holistic Financial Planning</h4>
+            <p class="sub">
+              Comprehensive guidance for retirement, insurance, and estate
+              planning, tailored to the client’s goals.
+            </p>
+            <ul class="small">
+              <li>Integrated mortgage and wealth advice</li>
+              <li>Long-term strategy for family security</li>
+              <li>Ongoing support and check-ins</li>
+            </ul>
+            <blockquote
+              class="small"
+              style="font-style: italic; color: #475a65; margin-top: 1em"
+            >
+              “Dimple helped us see the big picture and plan for our future. We
+              feel confident and secure thanks to her expertise.”
+            </blockquote>
+            <div style="margin-top: 0.5em; font-weight: 600">
+              — Neha & Amit K., Jersey City, NJ
+            </div>
+          </div>
+          <!-- Carousel Controls -->
+          <button
+            id="prevTestimonial"
+            style="
+              position: absolute;
+              left: -3.5em;
+              top: 50%;
+              transform: translateY(-50%);
+              background: #fff;
+              border-radius: 50%;
+              border: none;
+              width: 2.2em;
+              height: 2.2em;
+              box-shadow: 0 2px 8px #0002;
+              cursor: pointer;
+              font-size: 1.3em;
+            "
+          >
+            &#8592;
+          </button>
+          <button
+            id="nextTestimonial"
+            style="
+              position: absolute;
+              right: -3.5em;
+              top: 50%;
+              transform: translateY(-50%);
+              background: #fff;
+              border-radius: 50%;
+              border: none;
+              width: 2.2em;
+              height: 2.2em;
+              box-shadow: 0 2px 8px #0002;
+              cursor: pointer;
+              font-size: 1.3em;
+            "
+          >
+            &#8594;
+          </button>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;padding:2rem 0;">
-      <div>© <span id="year"></span> DB Mortgage & Financial Services. All rights reserved.</div>
-      <div>
-        <a href="#" style="margin-right:1rem;">Privacy</a>
-        <a href="#" style="margin-right:1rem;">Disclosures</a>
-        <a href="#contact">Contact</a>
+    <section class="section reveal">
+      <div class="container">
+        <h3>Why Choose Us</h3>
+        <div class="why">
+          <div>
+            <div class="chip">🏆 Expertise</div>
+            <p class="small">
+              Years of experience across diverse market conditions.
+            </p>
+          </div>
+          <div>
+            <div class="chip">🤝 Client‑First</div>
+            <p class="small">
+              Transparent communication & personalized advice.
+            </p>
+          </div>
+          <div>
+            <div class="chip">🔐 Compliance</div>
+            <p class="small">
+              Strict adherence to federal/state regulations & data security.
+            </p>
+          </div>
+          <div>
+            <div class="chip">🚀 Innovation</div>
+            <p class="small">
+              Tech‑driven process that saves time and reduces errors.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    // Set year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <section id="about" class="section reveal">
+      <div class="container">
+        <div class="split-dimple">
+          <article>
+            <h3>About Dimple Bhojawala</h3>
 
-    // --- Inline Calculator ---
-    function computeMortgage(amount, rate, years) {
-      var n = Math.max(1, Math.round(years * 12));
-      var r = Math.max(0, rate) / 100 / 12;
-      if (r === 0) return { monthly: amount / n };
-      var pow = Math.pow(1 + r, n);
-      var monthly = (amount * r * pow) / (pow - 1);
-      return { monthly: monthly };
-    }
-    function fmt(n) {
-      return n ? '$' + n.toLocaleString(undefined, {maximumFractionDigits:2}) : '$0';
-    }
-    // Inline calculator
-    function renderInlineCalculator() {
-      var container = document.getElementById('inline-calculator');
-      container.innerHTML = `
-        <label>Amount</label>
-        <input class="input" id="ic-amt" type="number" value="400000">
-        <label>Rate %</label>
-        <input class="input" id="ic-rate" type="number" step="0.01" value="6.5">
-        <label>Years</label>
-        <input class="input" id="ic-yrs" type="number" value="30">
-        <div id="ic-result" style="margin-top:1rem;">Estimated Monthly Payment: <strong>$0</strong></div>
-        <a href="#calculator" class="btn btn-outline" style="margin-top:1rem;">Open Full Calculator</a>
-      `;
-      function update() {
-        var amt = Number(document.getElementById('ic-amt').value);
-        var rate = Number(document.getElementById('ic-rate').value);
-        var yrs = Number(document.getElementById('ic-yrs').value);
-        var res = computeMortgage(amt, rate, yrs);
-        document.getElementById('ic-result').innerHTML = 'Estimated Monthly Payment: <strong>' + fmt(res.monthly) + '</strong>';
-      }
-      ['ic-amt','ic-rate','ic-yrs'].forEach(id => {
-        document.getElementById(id).addEventListener('input', update);
+            <p>
+              Dimple Bhojawala was born and raised in India and built her life
+              in the U.S. through hard work, education, and a deep passion for
+              helping others. A graduate of Kean University in Business
+              Management, she is a licensed Loan Officer and Life & Health
+              Insurance professional in New Jersey.
+            </p>
+            <p>
+              This unique expertise allows her to guide clients not only in
+              achieving their dream of homeownership but also in building
+              long-term financial stability.
+            </p>
+            <p>
+              Dimple’s approach is client-first—she understands that mortgages
+              and financial planning aren’t just about numbers, but about
+              dreams, challenges, and family security.
+            </p>
+            <p>
+              Beyond her professional role, Dimple enjoys painting and spending
+              quality time with her family, often traveling together to create
+              cherished memories.
+            </p>
+            <p>
+              Her mission is simple:
+              <i
+                >to be a trusted partner who helps people build secure,
+                fulfilling, and meaningful lives.</i
+              >
+            </p>
+          </article>
+          <aside class="card accent">
+            <img
+              src="resources/dimple_pic.jpg"
+              alt="Dimple Bhojawala portrait"
+              style="width: 100%; border-radius: 12px; margin-top: 0.7rem"
+            />
+            <p class="sub" style="text-align: center; display: block">
+              Licensed Loan Officer & Life/Health Insurance professional
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <div class="container contact">
+        <div>
+          <h3>Get in Touch</h3>
+          <p class="sub">
+            Have questions or ready to begin? Send a message—we’ll respond
+            promptly.
+          </p>
+          <form id="contactForm" novalidate>
+            <label>
+              <span class="small">Full Name</span>
+              <input type="text" name="name" required placeholder="Your name" />
+            </label>
+            <label>
+              <span class="small">Email</span>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="you@example.com"
+              />
+            </label>
+            <label>
+              <span class="small">Phone</span>
+              <input type="tel" name="phone" placeholder="(###) ###‑####" />
+            </label>
+            <label>
+              <span class="small">How can we help?</span>
+              <select name="topic" required>
+                <option value="">Select a topic…</option>
+                <option>Home Purchase Loan</option>
+                <option>Refinance</option>
+                <option>Jumbo / Specialized Program</option>
+                <option>Wealth & Retirement Planning</option>
+                <option>Insurance Solutions</option>
+                <option>General Question</option>
+              </select>
+            </label>
+            <label>
+              <span class="small">Message</span>
+              <textarea
+                name="message"
+                placeholder="Tell us a bit about your goals…"
+              ></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">
+              <span style="display: inline-flex; align-items: center">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+                  alt="WhatsApp"
+                  style="
+                    width: 1.3em;
+                    height: 1.2em;
+                    margin-right: 0.5em;
+                    vertical-align: middle;
+                    filter: invert(1) drop-shadow(0 1px 2px #0002);
+                  "
+                />
+                Send WhatsApp Message
+              </span>
+            </button>
+            <p id="formNote" class="small" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <aside class="card">
+          <div class="chip">📞 Contact Details</div>
+          <ul class="small" aria-label="Contacts">
+            <li>
+              <strong>Dimple Bhojawala</strong><br />
+              <a href="mailto:dbhojawala@dbmfservice.com"
+                >dbhojawala@dbmfservice.com</a
+              >
+              · <a href="tel:+18484696763">848‑469‑6763</a>
+            </li>
+          </ul>
+          <div class="cta-band" style="margin-top: 0.8rem">
+            <strong>Prefer email?</strong>
+            <a
+              class="btn btn-ghost"
+              href="mailto:dbhojawala@dbmfservice.com?subject=Inquiry from Website"
+              ><img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg"
+                alt="Email"
+                style="
+                  width: 1.2em;
+                  height: 1.2em;
+                  margin-right: 0.5em;
+                  vertical-align: middle;
+                  filter: invert(1) brightness(2) drop-shadow(0 1px 2px #0002);
+                "
+              />
+              Email Dimple</a
+            >
+          </div>
+          <div class="cta-band" style="margin-top: 0.8rem">
+            <strong>Prefer call?</strong>
+            <a class="btn btn-ghost" href="tel:+18484696763">
+              <svg
+                width="1.2em"
+                height="1.2em"
+                viewBox="0 0 24 24"
+                fill="white"
+                style="margin-right: 0.5em; vertical-align: middle"
+              >
+                <path
+                  d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22 2 13.93 2 4.5A1 1 0 013 3.5h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"
+                />
+              </svg>
+              Call Dimple</a
+            >
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="tag">DB Mortgage & Financial Services</div>
+            <p class="small">
+              We simplify the path to homeownership and long‑term financial
+              security with transparent guidance and a technology‑driven
+              process.
+            </p>
+          </div>
+          <div>
+            <div class="small"><strong>Quick Links</strong></div>
+            <ul
+              class="small"
+              style="list-style: none; padding: 0; margin: 0.4rem 0 0"
+            >
+              <li><a href="#services">Services</a></li>
+              <li><a href="#mortgage">Mortgage Solutions</a></li>
+              <li><a href="#financial">Financial Planning</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="small"><strong>Compliance & Privacy</strong></div>
+            <p class="small">
+              This website provides general information and is not a commitment
+              to lend or a financial plan. Terms subject to change; eligibility
+              applies. Please review our privacy policy and disclosures during
+              application.
+            </p>
+          </div>
+        </div>
+        <div class="small" style="margin-top: 12px; color: #9fb0bb">
+          © <span id="year"></span> DB Mortgage & Financial Services. All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Intersection Observer for reveal animations
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("show");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // Mortgage calculator
+      const fmt = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
       });
-      update();
-    }
-    renderInlineCalculator();
-
-    // --- Mortgage Calculator ---
-    function renderMortgageFields() {
-      var container = document.getElementById('mortgage-fields');
-      container.innerHTML = `
-        <label>Home Price</label>
-        <input class="input" id="mc-amount" type="number" value="450000">
-        <label>Down Payment (%)</label>
-        <input class="input" id="mc-down" type="number" value="10">
-        <label>Interest Rate (APR %)</label>
-        <input class="input" id="mc-rate" type="number" step="0.01" value="6.25">
-        <label>Loan Term (Years)</label>
-        <input class="input" id="mc-years" type="number" value="30">
-        <label>Annual Taxes</label>
-        <input class="input" id="mc-taxes" type="number" value="5200">
-        <label>Annual Insurance</label>
-        <input class="input" id="mc-insurance" type="number" value="1400">
-        <label>Monthly HOA</label>
-        <input class="input" id="mc-hoa" type="number" value="0">
-      `;
-      function update() {
-        var amount = Number(document.getElementById('mc-amount').value);
-        var down = Number(document.getElementById('mc-down').value);
-        var rate = Number(document.getElementById('mc-rate').value);
-        var years = Number(document.getElementById('mc-years').value);
-        var taxes = Number(document.getElementById('mc-taxes').value);
-        var insurance = Number(document.getElementById('mc-insurance').value);
-        var hoa = Number(document.getElementById('mc-hoa').value);
-
-        var principal = amount * (1 - down/100);
-        var base = computeMortgage(principal, rate, years);
-        var escrowMonthly = (taxes + insurance) / 12 + hoa;
-        var piti = base.monthly + escrowMonthly;
-
-        var results = `
-          <div class="row"><span>Home Price</span><span>${fmt(amount)}</span></div>
-          <div class="row"><span>Down Payment</span><span>${down}% (${fmt(amount * down/100)})</span></div>
-          <div class="row"><span>Loan Amount</span><span>${fmt(principal)}</span></div>
-          <hr>
-          <div class="row"><span>P&I (Principal & Interest)</span><span>${fmt(base.monthly)}</span></div>
-          <div class="row"><span>Taxes + Insurance + HOA</span><span>${fmt(escrowMonthly)}</span></div>
-          <div class="row"><strong>Estimated Monthly Payment</strong><strong>${fmt(piti)}</strong></div>
-          <div style="font-size:0.85em;color:#64748b;margin-top:1rem;">Your rate and final payment may vary based on credit profile, loan type, and market conditions.</div>
-        `;
-        document.getElementById('mortgage-results').innerHTML = results;
+      function calcPayment(P, r, n) {
+        if (r === 0) return P / n; // simple division if 0% rate
+        const i = r / 12;
+        const m = n * 12;
+        return (P * i) / (1 - Math.pow(1 + i, -m));
       }
-      ['mc-amount','mc-down','mc-rate','mc-years','mc-taxes','mc-insurance','mc-hoa'].forEach(id => {
-        document.getElementById(id).addEventListener('input', update);
+      const price = document.getElementById("price");
+      const down = document.getElementById("down");
+      const rate = document.getElementById("rate");
+      const years = document.getElementById("years");
+      const btn = document.getElementById("calcBtn");
+      const out = document.getElementById("result");
+      btn?.addEventListener("click", () => {
+        const home = Number(price.value || 0);
+        const dpct = Math.min(Math.max(Number(down.value || 0), 0), 100);
+        const r = Number(rate.value || 0) / 100;
+        const term = Math.max(Number(years.value || 0), 1);
+        const principal = home * (1 - dpct / 100);
+        const pmt = calcPayment(principal, r, term);
+        out.innerHTML = `<div><strong>Estimated Payment:</strong> ${fmt.format(
+          pmt
+        )} / month</div><div class="small">Principal & interest only. Taxes, insurance, and HOA not included.</div>`;
+        out.style.display = "flex";
       });
-      update();
-    }
-    renderMortgageFields();
 
-    // --- Contact Form ---
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      var name = this.name.value;
-      var email = this.email.value;
-      var phone = this.phone.value;
-      var message = this.message.value;
-      var subject = encodeURIComponent("DB Mortgage & Financial Services — Inquiry");
-      var body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`);
-      window.location.href = `mailto:info@example.com?subject=${subject}&body=${body}`;
-    });
-  </script>
-</body>
+      // Simple contact form handler (demo only)
+      const form = document.getElementById("contactForm");
+      form?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const note = document.getElementById("formNote");
+        const data = new FormData(form);
+        const name = data.get("name");
+        const email = data.get("email");
+        const topic = data.get("topic");
+        if (!name || !email || !topic) {
+          note.textContent = "Please complete required fields.";
+          note.style.color = "#fd8135";
+          return;
+        }
+        // WhatsApp API link (replace with your WhatsApp number)
+        const whatsappNumber = "18484696763"; // Use country code, no + or spaces
+        const whatsappMsg = `Name: ${name}\nEmail: ${email}\nTopic: ${topic}`;
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+          whatsappMsg
+        )}`;
+        window.open(whatsappUrl, "_blank");
+        note.textContent = "Opening WhatsApp…";
+        note.style.color = "#0380d0";
+        form.reset();
+        // const mailto = `mailto:dbhojawala@dbmfservice.com?subject=Website Inquiry – ${encodeURIComponent(
+        //   topic
+        // )}&body=${encodeURIComponent(
+        //   `Name: ${name}\nEmail: ${email}\nPhone: ${
+        //     data.get("phone") || ""
+        //   }\n\nMessage: ${data.get("message") || ""}`
+        // )}`;
+        // window.location.href = mailto;
+        // note.textContent = "Opening your email client…";
+        // note.style.color = "#0380d0";
+        // form.reset();
+      });
+
+      // Footer year
+      document.getElementById("year").textContent = new Date().getFullYear();
+      // Testimonial carousel logic
+      const slides = document.querySelectorAll(".testimonial-slide");
+      let current = 0;
+      function showSlide(idx) {
+        slides.forEach((s, i) => {
+          s.style.display = i === idx ? "block" : "none";
+          s.classList.toggle("show", i === idx);
+        });
+      }
+      document.getElementById("prevTestimonial").onclick = () => {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+      };
+      document.getElementById("nextTestimonial").onclick = () => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      };
+      showSlide(current);
+    </script>
+  </body>
 </html>
